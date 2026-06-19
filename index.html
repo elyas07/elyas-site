@@ -3,50 +3,74 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Elyas | Developer Portfolio</title>
+<title>Elyas | Next Level Portfolio</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
 
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter;}
+
 body{
-  margin:0;
-  font-family:Inter;
   background:#050816;
-  color:#fff;
+  color:white;
   overflow-x:hidden;
 }
 
-/* glow background */
+/* animated background */
 .bg{
   position:fixed;
-  width:100%;
-  height:100%;
-  background: radial-gradient(circle at top, #1e40af33, transparent),
-              radial-gradient(circle at bottom, #9333ea33, transparent);
+  width:200%;
+  height:200%;
+  background: radial-gradient(circle at 20% 20%, #3b82f6aa, transparent 40%),
+              radial-gradient(circle at 80% 30%, #a855f7aa, transparent 40%),
+              radial-gradient(circle at 50% 80%, #22c55e33, transparent 40%);
+  animation: move 12s infinite alternate;
   z-index:-1;
 }
+
+@keyframes move{
+  0%{transform:translate(0,0);}
+  100%{transform:translate(-10%,-10%);}
+}
+
+/* navbar */
+nav{
+  display:flex;
+  justify-content:space-between;
+  padding:20px 60px;
+  position:sticky;
+  top:0;
+  backdrop-filter: blur(10px);
+  background:#0a0f1fcc;
+}
+
+nav a{
+  color:#aaa;
+  margin-left:20px;
+  text-decoration:none;
+}
+
+nav a:hover{color:white;}
 
 /* hero */
 .hero{
   text-align:center;
-  padding:120px 20px 60px;
+  padding:120px 20px 80px;
 }
 
-h1{
-  font-size:50px;
-  margin:0;
+.hero h1{
+  font-size:60px;
 }
 
-h1 span{
+.hero span{
   background:linear-gradient(90deg,#60a5fa,#a78bfa);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 
-.typing{
+.hero p{
+  color:#aaa;
   margin-top:15px;
-  font-size:18px;
-  color:#a1a1aa;
 }
 
 /* buttons */
@@ -54,14 +78,13 @@ h1 span{
   margin-top:30px;
 }
 
-button{
-  padding:12px 20px;
-  margin:5px;
-  border:none;
+.btn{
+  padding:12px 18px;
   border-radius:10px;
+  border:none;
   cursor:pointer;
-  font-weight:600;
-  transition:0.3s;
+  margin:5px;
+  transition:.3s;
 }
 
 .primary{
@@ -70,40 +93,59 @@ button{
 }
 
 .secondary{
-  background:#111827;
-  color:white;
+  background:transparent;
   border:1px solid #333;
+  color:white;
 }
 
-button:hover{
-  transform:scale(1.05);
-}
+.btn:hover{transform:scale(1.05);}
 
 /* sections */
 .section{
-  max-width:900px;
+  max-width:1000px;
   margin:80px auto;
   padding:0 20px;
 }
 
+.title{
+  font-size:28px;
+  margin-bottom:20px;
+  color:#93c5fd;
+}
+
+/* glass cards */
 .card{
-  background:#0f172a;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
   padding:20px;
   border-radius:16px;
-  margin-top:20px;
-  border:1px solid #1f2937;
-  transition:0.3s;
+  margin:10px 0;
+  transition:.3s;
 }
 
 .card:hover{
-  transform:translateY(-5px);
+  transform:translateY(-8px);
   border-color:#3b82f6;
 }
 
-.projects{
+/* grid */
+.grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:15px;
+}
+
+/* reveal animation */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
 }
 
 footer{
@@ -118,95 +160,80 @@ footer{
 
 <div class="bg"></div>
 
-<div class="hero">
+<nav>
+  <div><b>Elyas</b></div>
+  <div>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="hero reveal">
   <h1>Hi, I'm <span>Elyas</span></h1>
-  <div class="typing" id="typing"></div>
+  <p>Building AI tools, automation systems & modern web apps</p>
 
   <div class="btns">
-    <button class="primary">View Projects</button>
-    <button class="secondary">Contact Me</button>
+    <button class="btn primary">View Work</button>
+    <button class="btn secondary">Contact</button>
   </div>
 </div>
 
-<div class="section">
-  <h2>About Me</h2>
+<div id="about" class="section reveal">
+  <div class="title">About Me</div>
   <div class="card">
-    Developer passionate about AI, automation, and modern web experiences.
-    I build tools that solve real problems.
+    I'm a developer focused on building high-performance web apps,
+    AI-powered tools and automation systems. I love clean UI and scalable architecture.
   </div>
 </div>
 
-<div class="section">
-  <h2>Projects</h2>
+<div id="projects" class="section reveal">
+  <div class="title">Projects</div>
 
-  <div class="projects">
+  <div class="grid">
 
     <div class="card">
       <h3>CronCraft</h3>
-      <p>Automation & scheduling web tool.</p>
+      <p>Automation & scheduling platform</p>
     </div>
 
     <div class="card">
-      <h3>AI Bot</h3>
-      <p>Smart trading assistant (in progress).</p>
+      <h3>AI Trading Bot</h3>
+      <p>Smart prediction system (WIP)</p>
     </div>
 
     <div class="card">
-      <h3>Portfolio</h3>
-      <p>This futuristic portfolio site.</p>
+      <h3>Portfolio v2</h3>
+      <p>This ultra modern portfolio</p>
     </div>
 
   </div>
 </div>
 
-<div class="section">
-  <h2>Contact</h2>
+<div id="contact" class="section reveal">
+  <div class="title">Contact</div>
   <div class="card">
-    Gmail: elyas.mohseni10@gmail.com <br>
+    Email: elyas.mohseni10@gmail.com<br>
     GitHub: github.com/elyas07
   </div>
 </div>
 
 <footer>
-  © 2026 Elyas Mohseni — Built with pure HTML/CSS
+  © 2026 Elyas Mohseni — Next Level Portfolio
 </footer>
 
 <script>
-const text = [
-  "Frontend Developer",
-  "AI Builder",
-  "Automation Engineer"
-];
-
-let i = 0;
-let j = 0;
-let current = "";
-let isDeleting = false;
-
-function type(){
-  current = text[i];
-
-  if(!isDeleting){
-    j++;
-    document.getElementById("typing").innerHTML = current.substring(0,j);
-    if(j == current.length){
-      isDeleting = true;
-      setTimeout(type,1000);
-      return;
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('active');
     }
-  } else {
-    j--;
-    document.getElementById("typing").innerHTML = current.substring(0,j);
-    if(j == 0){
-      isDeleting = false;
-      i = (i+1) % text.length;
-    }
-  }
+  });
+});
 
-  setTimeout(type,80);
-}
-
-type();
+document.querySelectorAll('.reveal').forEach(el=>{
+  observer.observe(el);
+});
 </script>
 
 </body>
