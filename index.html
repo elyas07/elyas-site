@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Elyas | GOD MODE Portfolio</title>
+<title>Elyas | Full Power OS</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
@@ -16,54 +16,38 @@ body{
   overflow-x:hidden;
 }
 
-/* ===== GOD BACKGROUND ===== */
+/* cosmic bg */
 .bg{
   position:fixed;
   width:300%;
   height:300%;
   background:
-    radial-gradient(circle at 20% 20%, #3b82f6aa, transparent 35%),
-    radial-gradient(circle at 70% 30%, #a855f7aa, transparent 35%),
-    radial-gradient(circle at 50% 80%, #22c55e33, transparent 35%);
-  animation: move 18s infinite alternate ease-in-out;
+    radial-gradient(circle at 20% 20%, #3b82f6aa, transparent 40%),
+    radial-gradient(circle at 80% 30%, #a855f7aa, transparent 40%),
+    radial-gradient(circle at 50% 80%, #22c55e33, transparent 40%);
+  filter:blur(50px);
+  animation:move 20s infinite alternate;
   z-index:-2;
-  filter: blur(40px);
 }
 
 @keyframes move{
-  0%{transform:translate(0,0) scale(1);}
-  100%{transform:translate(-8%,-6%) scale(1.1);}
+  0%{transform:translate(0,0);}
+  100%{transform:translate(-10%,-8%);}
 }
 
-/* floating particles */
-.particle{
-  position:absolute;
-  width:6px;height:6px;
-  background:white;
-  border-radius:50%;
-  opacity:.2;
-  animation: float 10s infinite linear;
-}
-
-@keyframes float{
-  0%{transform:translateY(0);}
-  100%{transform:translateY(-100vh);}
-}
-
-/* ===== NAV ===== */
+/* NAV */
 nav{
   position:fixed;
   top:20px;
   left:50%;
   transform:translateX(-50%);
   display:flex;
-  gap:30px;
-  padding:12px 25px;
+  gap:25px;
+  padding:12px 20px;
   background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(15px);
   border:1px solid rgba(255,255,255,0.1);
-  border-radius:20px;
-  z-index:10;
+  backdrop-filter:blur(15px);
+  border-radius:999px;
 }
 
 nav a{
@@ -71,18 +55,16 @@ nav a{
   text-decoration:none;
   font-size:14px;
 }
-
 nav a:hover{color:white;}
 
-/* ===== HERO ===== */
+/* HERO */
 .hero{
   text-align:center;
-  padding:160px 20px 80px;
+  padding:170px 20px 80px;
 }
 
 .hero h1{
-  font-size:70px;
-  letter-spacing:-2px;
+  font-size:64px;
 }
 
 .hero span{
@@ -94,95 +76,72 @@ nav a:hover{color:white;}
 .hero p{
   color:#aaa;
   margin-top:15px;
-  font-size:18px;
 }
 
-.btns{margin-top:35px;}
-
-.btn{
-  padding:14px 22px;
-  border:none;
-  border-radius:14px;
-  cursor:pointer;
-  margin:5px;
-  transition:.3s;
-  font-weight:600;
-}
-
-.primary{
-  background:linear-gradient(90deg,#3b82f6,#8b5cf6);
-  color:white;
-  box-shadow:0 0 20px #3b82f655;
-}
-
-.secondary{
-  background:rgba(255,255,255,0.05);
+/* TERMINAL */
+.terminal{
+  max-width:700px;
+  margin:40px auto;
+  background:rgba(0,0,0,0.4);
   border:1px solid rgba(255,255,255,0.1);
-  color:white;
+  border-radius:16px;
+  padding:20px;
+  font-family:monospace;
 }
 
-.btn:hover{
-  transform:scale(1.07) translateY(-2px);
-}
+.line{color:#22c55e;}
 
-/* ===== SECTIONS ===== */
+/* CARDS */
 .section{
   max-width:1000px;
   margin:100px auto;
   padding:0 20px;
 }
 
-.title{
-  font-size:30px;
-  margin-bottom:20px;
-  color:#93c5fd;
-}
-
-/* ===== CARDS ===== */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:18px;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
 }
 
 .card{
   background:rgba(255,255,255,0.05);
   border:1px solid rgba(255,255,255,0.1);
-  backdrop-filter:blur(15px);
   padding:20px;
-  border-radius:18px;
-  transition:.4s;
-  transform-style:preserve-3d;
+  border-radius:16px;
+  transition:.3s;
 }
 
 .card:hover{
-  transform:rotateX(5deg) rotateY(-5deg) scale(1.03);
+  transform:translateY(-10px);
   border-color:#3b82f6;
-  box-shadow:0 0 25px #3b82f633;
+  box-shadow:0 0 30px #3b82f633;
 }
 
-/* ===== REVEAL ===== */
-.reveal{
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s;
-}
-
-.reveal.active{
-  opacity:1;
-  transform:translateY(0);
-}
-
-footer{
+/* CTA */
+.cta{
   text-align:center;
-  padding:60px;
-  color:#666;
+  margin:80px 0;
 }
 
-/* mobile */
-@media(max-width:600px){
-  .hero h1{font-size:40px;}
-  nav{gap:15px;}
+button{
+  padding:14px 22px;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  margin:5px;
+  font-weight:600;
+}
+
+.primary{
+  background:linear-gradient(90deg,#3b82f6,#8b5cf6);
+  color:white;
+}
+
+.secondary{
+  background:transparent;
+  border:1px solid #333;
+  color:white;
 }
 </style>
 </head>
@@ -191,86 +150,54 @@ footer{
 
 <div class="bg"></div>
 
-<!-- particles -->
-<script>
-for(let i=0;i<25;i++){
-  const p=document.createElement("div");
-  p.className="particle";
-  p.style.left=Math.random()*100+"%";
-  p.style.top=Math.random()*100+"%";
-  p.style.animationDuration=(5+Math.random()*10)+"s";
-  document.body.appendChild(p);
-}
-</script>
-
 <nav>
-  <a href="#about">About</a>
+  <a href="#">Home</a>
   <a href="#projects">Projects</a>
+  <a href="#labs">Labs</a>
   <a href="#contact">Contact</a>
 </nav>
 
-<div class="hero reveal">
-  <h1>Hi, I'm <span>Elyas</span></h1>
-  <p>Building AI systems, automation tools & next-gen web apps</p>
-
-  <div class="btns">
-    <button class="btn primary">Explore Work</button>
-    <button class="btn secondary">Contact Me</button>
-  </div>
+<div class="hero">
+  <h1>Elyas <span>Full Power OS</span></h1>
+  <p>A personal system for building AI, automation & web products</p>
 </div>
 
-<div id="about" class="section reveal">
-  <div class="title">About</div>
-  <div class="card">
-    I design and build high-performance systems, AI tools and modern web experiences.
-    Focused on scalability, automation, and clean UX.
-  </div>
+<div class="terminal">
+  <div class="line">> about</div>
+  <div>Developer building AI systems & automation tools.</div>
+  <br/>
+  <div class="line">> projects</div>
+  <div>CronCraft / AI Bot / Portfolio OS</div>
+  <br/>
+  <div class="line">> status</div>
+  <div>ONLINE • BUILDING FUTURE SYSTEMS</div>
 </div>
 
-<div id="projects" class="section reveal">
-  <div class="title">Projects</div>
-
+<div id="projects" class="section">
   <div class="grid">
 
     <div class="card">
       <h3>CronCraft</h3>
-      <p>Automation engine for scheduling workflows</p>
+      <p>Automation engine for workflows</p>
     </div>
 
     <div class="card">
-      <h3>AI Trading Bot</h3>
-      <p>Predictive system powered by ML</p>
+      <h3>AI System</h3>
+      <p>Smart prediction engine</p>
     </div>
 
     <div class="card">
-      <h3>Neural UI Kit</h3>
-      <p>Design system for modern apps</p>
+      <h3>Portfolio OS</h3>
+      <p>This full power system</p>
     </div>
 
   </div>
 </div>
 
-<div id="contact" class="section reveal">
-  <div class="title">Contact</div>
-  <div class="card">
-    Email: elyas.mohseni10@gmail.com<br>
-    GitHub: github.com/elyas07
-  </div>
+<div class="cta">
+  <button class="primary">Launch Project</button>
+  <button class="secondary">Contact</button>
 </div>
-
-<footer>
-  © 2026 Elyas — GOD MODE EDITION
-</footer>
-
-<script>
-const observer=new IntersectionObserver(e=>{
-  e.forEach(x=>{
-    if(x.isIntersecting)x.target.classList.add("active");
-  });
-});
-
-document.querySelectorAll(".reveal").forEach(e=>observer.observe(e));
-</script>
 
 </body>
 </html>
